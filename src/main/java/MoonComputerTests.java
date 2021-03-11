@@ -19,12 +19,14 @@ public class MoonComputerTests {
         System.out.println(sum + " " + sub + " " + mult + " " + div);
         scanner.close();
     }
-
+    /*
     //Test output on Hello Java standard input
-    public static void main1(String[] args) {
+    public static void main(String[] args) {
         MoonComputerTests computerTests = new MoonComputerTests();
         computerTests.testBasicInputOutput();
     }
+
+     */
 
     //Test output on 24, 4 standard input
     public static void main(String[] args) {
