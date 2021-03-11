@@ -34,23 +34,13 @@ public class MoonComputerTests {
         scanner.close();
     }
 
-    /*
     //Test output on Hello Java standard input
     public static void main(String[] args) {
         MoonComputerTests computerTests = new MoonComputerTests();
         computerTests.testBasicInputOutput();
-    }
-     */
 
-    /*
-    //Test output on 24, 4 standard input
-    public static void main(String[] args) {
         new MoonComputerTests().testMath();
-    }
-     */
 
-    //Test output on true, true, false standard input
-    public static void main(String[] args) {
         new MoonComputerTests().testLogicalOperators();
     }
 }
