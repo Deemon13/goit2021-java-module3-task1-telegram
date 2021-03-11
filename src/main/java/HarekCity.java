@@ -11,11 +11,21 @@ public class HarekCity {
         return ageArray;
     }
 
+    public void fixNames(String[] names, String[] toReplace) {
+        names[1] = toReplace[0];
+        names[3] = toReplace[1];
+    }
+
     public static void main(String[] args) {
         String[] arr = new HarekCity().createEmptyNameArray();
         System.out.println(Arrays.toString(arr));
 
         int[] ageArray = new HarekCity().createAgeArray(10, 20, 30, 40);
         System.out.println(Arrays.toString(ageArray));
+
+        String[] names = new String[]{"mixa", "ukio", "barek", "krou", "fiha"};
+        String[] toReplace = new String[]{"lopr", "boki"};
+        new HarekCity().fixNames(names, toReplace);
+        System.out.println(Arrays.toString(names));
     }
 }
