@@ -33,6 +33,11 @@ public class HarekCity {
         return shortArr;
     }
 
+    public char[][] createKeyboard() {
+        char[][] keyBoard = new char[][] {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}, {'*', '0', '#'}};
+        return keyBoard;
+    }
+
     public static void main(String[] args) {
         String[] arr = new HarekCity().createEmptyNameArray();
         System.out.println(Arrays.toString(arr));
@@ -55,5 +60,10 @@ public class HarekCity {
         String[] resultsNew = new String[]{"mix", "max", "pex", "fux", "rox"};
         String[] changedResults = new HarekCity().changeElectResultAgain(resultsNew);
         System.out.println(Arrays.toString(changedResults));
+
+        char[][] keyboard = new HarekCity().createKeyboard();
+        for (int i = 0; i < keyboard.length; i++) {
+            System.out.println(Arrays.toString(keyboard[i]));
+        }
     }
 }
