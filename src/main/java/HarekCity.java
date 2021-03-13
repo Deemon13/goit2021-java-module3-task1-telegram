@@ -43,6 +43,11 @@ public class HarekCity {
         System.out.println(Arrays.toString(newKeyboard[0]) + "\n" + Arrays.toString(newKeyboard[1]) + "\n" + Arrays.toString(newKeyboard[2]) + "\n" + Arrays.toString(newKeyboard[3]));
     }
 
+    public String[] makeCopy(String[] names) {
+        System.out.println("Copied!");
+        return Arrays.copyOf(names, names.length);
+    }
+
     public static void main(String[] args) {
         String[] arr = new HarekCity().createEmptyNameArray();
         System.out.println(Arrays.toString(arr));
@@ -72,5 +77,9 @@ public class HarekCity {
         }
 
         new HarekCity().printKeyboard();
+
+        String[] source = new String[] {"Hero", "Mihu"};
+        String[] copy = new HarekCity().makeCopy(source);
+        System.out.println(Arrays.toString(copy));
     }
 }
