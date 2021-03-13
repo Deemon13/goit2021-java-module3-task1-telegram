@@ -38,6 +38,11 @@ public class HarekCity {
         return keyBoard;
     }
 
+    public void printKeyboard() {
+        char[][] newKeyboard = createKeyboard();
+        System.out.println(Arrays.toString(newKeyboard[0]) + "\n" + Arrays.toString(newKeyboard[1]) + "\n" + Arrays.toString(newKeyboard[2]) + "\n" + Arrays.toString(newKeyboard[3]));
+    }
+
     public static void main(String[] args) {
         String[] arr = new HarekCity().createEmptyNameArray();
         System.out.println(Arrays.toString(arr));
@@ -65,5 +70,7 @@ public class HarekCity {
         for (int i = 0; i < keyboard.length; i++) {
             System.out.println(Arrays.toString(keyboard[i]));
         }
+
+        new HarekCity().printKeyboard();
     }
 }
