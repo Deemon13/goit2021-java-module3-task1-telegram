@@ -43,6 +43,29 @@ public class UberShop {
         }
     }
 
+    public int getMinPriceCount(int[] prices) {
+        if (prices.length == 0) {
+            return 0;
+        }
+
+        int min = prices[0];
+        int count = 0;
+
+        for(int price: prices) {
+            if (price < min) {
+                min = price;
+            }
+        }
+
+        for(int price: prices) {
+            if (price == min) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
 
     //Test output
     public static void main(String[] args) {
@@ -73,6 +96,15 @@ public class UberShop {
         int[] pricesFour = new int[] {50, 50};
         int[] minMaxFour = shop.findMinMaxPrices(pricesFour);
         System.out.println(Arrays.toString(minMaxFour));
+
+        int[] pricesForMinOne = new int[] {100, 1500, 300, 50, 10, 10, 70};
+        System.out.println(shop.getMinPriceCount(pricesForMinOne)); //Should be 2
+        int[] pricesForMinTwo = new int[] {};
+        System.out.println(shop.getMinPriceCount(pricesForMinTwo)); //Should be 0
+        int[] pricesForMinThree = new int[] {5, 5, 5};
+        System.out.println(shop.getMinPriceCount(pricesForMinThree)); //Should be 3
+        int[] pricesForMinFour = new int[] {5, 10, 15, 3, 5};
+        System.out.println(shop.getMinPriceCount(pricesForMinFour)); //Should be 1
     }
 
 }
