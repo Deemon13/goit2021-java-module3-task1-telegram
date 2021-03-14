@@ -42,6 +42,17 @@ public class SaveStarShip {
         return count * price;
     }
 
+    public int roundSpeed(int speed) {
+        int firstSign = speed / 10;
+        int secondSign = speed % 10;
+
+        if (secondSign >= 5) {
+            firstSign++;
+        }
+
+        return firstSign * 10;
+    }
+
     //Test output
     public static void main(String[] args) {
         SaveStarShip ship = new SaveStarShip();
@@ -65,5 +76,14 @@ public class SaveStarShip {
         System.out.println(ship.calculateFuelPrice("STAR100", 10));
         //Should be 250
         System.out.println(ship.calculateFuelPrice("STAR7", 5));
+
+        //Should be 60
+        System.out.println(ship.roundSpeed(55));
+        //Should be 10
+        System.out.println(ship.roundSpeed(10));
+        //Should be 50
+        System.out.println(ship.roundSpeed(15));
+        //Should be 90
+        System.out.println(ship.roundSpeed(89));
     }
 }
