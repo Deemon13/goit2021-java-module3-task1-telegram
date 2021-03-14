@@ -126,6 +126,21 @@ public class SaveStarShip {
         return myPrize.trim();
     }
 
+
+    public boolean isHangarOk(int side1, int side2, int price) {
+        int square = side1 * side2;
+        int longSide = Math.max(side1, side2);
+        int shortSide = Math.min(side1, side2);
+        int pricePerMetr = price / square;
+
+        if (square < 1500) return false;
+        if (longSide > shortSide * 2) return false;
+        if (pricePerMetr > 1000) return false;
+
+        return true;
+    }
+
+
     //Test output
     public static void main(String[] args) {
         SaveStarShip ship = new SaveStarShip();
@@ -185,5 +200,10 @@ public class SaveStarShip {
         System.out.println(ship.getMyPrizes(777));
         //Should be ""
         System.out.println(ship.getMyPrizes(54));
+
+        //Should be true
+        System.out.println(ship.isHangarOk(100, 75, 1000000));
+        //Should be false
+        System.out.println(ship.isHangarOk(100, 20, 1000000));
     }
 }
