@@ -21,6 +21,13 @@ public class SaveStarShip {
         }
     }
 
+    public String choosePlanet(long distanceToEarth) {
+        if (distanceToEarth < 45677) {
+            return "Earth";
+        }
+        return "Pern";
+    }
+
     //Test output
     public static void main(String[] args) {
         SaveStarShip ship = new SaveStarShip();
@@ -34,5 +41,10 @@ public class SaveStarShip {
         System.out.println(Arrays.toString(ship.getPlanets("DangerBanger")));
         //Should be [Fobius, Demius]
         System.out.println(Arrays.toString(ship.getPlanets("Unknown")));
+
+        //Should be Earth
+        System.out.println(ship.choosePlanet(10));
+        //Should be Pern
+        System.out.println(ship.choosePlanet(100000));
     }
 }
