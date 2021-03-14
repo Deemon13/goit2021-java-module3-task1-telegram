@@ -28,6 +28,17 @@ public class SaveStarShip {
         return "Pern";
     }
 
+    public int calculateFuelPrice(String fuel, int count) {
+        if (fuel == "STAR100") {
+            return count * 70;
+        } else if (fuel == "STAR500") {
+            return count * 120;
+        } else if (fuel == "STAR1000") {
+            return count * 200;
+        }
+        return count * 50;
+    }
+
     //Test output
     public static void main(String[] args) {
         SaveStarShip ship = new SaveStarShip();
@@ -46,5 +57,10 @@ public class SaveStarShip {
         System.out.println(ship.choosePlanet(10));
         //Should be Pern
         System.out.println(ship.choosePlanet(100000));
+
+        //Should be 700
+        System.out.println(ship.calculateFuelPrice("STAR100", 10));
+        //Should be 250
+        System.out.println(ship.calculateFuelPrice("STAR7", 5));
     }
 }
