@@ -61,6 +61,57 @@ public class SaveStarShip {
         }
     }
 
+    public void calculateMaxPower() {
+        Scanner scanner = new Scanner(System.in);
+        int firstEngine = scanner.nextInt();
+        int secondEngine = scanner.nextInt();
+        int thirdEngine = scanner.nextInt();
+
+        int maxPowerEngine = Math.max(Math.max(firstEngine, secondEngine), thirdEngine);
+
+        if (maxPowerEngine < 10) {
+            float maxPower = maxPowerEngine * 0.7f;
+            System.out.println(maxPower);
+        } else if (maxPowerEngine >= 10 && maxPowerEngine <= 100) {
+            float maxPower = maxPowerEngine * 1.2f;
+            System.out.println(maxPower);
+        } else {
+            float maxPower = maxPowerEngine * 2.1f;
+            System.out.println(maxPower);
+        }
+        scanner.close();
+    }
+
+    /* AUTOCHECK DECISION
+    public void calculateMaxPower() {
+        Scanner scanner = new Scanner(System.in);
+        int speed1 = scanner.nextInt();
+        int speed2 = scanner.nextInt();
+        int speed3 = scanner.nextInt();
+
+        int max = speed1;
+        if (speed2 > max) {
+            max = speed2;
+        }
+        if (speed3 > max) {
+            max = speed3;
+        }
+
+        float coeff = 0.7f;
+        if (max < 10) {
+            coeff = 0.7f;
+        } else if (max > 10 && max < 100) {
+            coeff = 1.2f;
+        } else {
+            coeff = 2.1f;
+        }
+
+        float maxPower = (float) max * coeff;
+        System.out.println(maxPower);
+        scanner.close();
+    }
+    */
+
     //Test output
     public static void main(String[] args) {
         SaveStarShip ship = new SaveStarShip();
@@ -102,5 +153,12 @@ public class SaveStarShip {
         System.out.println(ship.calculateNeededFuel(20));
         //Should be 1025
         System.out.println(ship.calculateNeededFuel(25));
+
+        //Test stdin data - 1 3 5.
+        //Console ouput should be 3.5
+        ship.calculateMaxPower();
+        //Test stdin data - 5 10 8.
+        //Console ouput should be 12
+        ship.calculateMaxPower();
     }
 }
