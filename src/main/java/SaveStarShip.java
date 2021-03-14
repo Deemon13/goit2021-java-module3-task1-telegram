@@ -112,6 +112,20 @@ public class SaveStarShip {
     }
     */
 
+    public String getMyPrizes(int ticket) {
+        String myPrize = "";
+        if (ticket % 10 == 0) {
+            myPrize = "crystall";
+        }
+        if (ticket % 10 == 7) {
+            myPrize = myPrize + " chip";
+        }
+        if (ticket > 200) {
+            myPrize = myPrize + " coin";
+        }
+        return myPrize.trim();
+    }
+
     //Test output
     public static void main(String[] args) {
         SaveStarShip ship = new SaveStarShip();
@@ -156,9 +170,20 @@ public class SaveStarShip {
 
         //Test stdin data - 1 3 5.
         //Console ouput should be 3.5
-        ship.calculateMaxPower();
+        //ship.calculateMaxPower();
         //Test stdin data - 5 10 8.
         //Console ouput should be 12
-        ship.calculateMaxPower();
+        //ship.calculateMaxPower();
+
+        //Should be "crystall coin"
+        System.out.println(ship.getMyPrizes(250));
+        //Should be "crystall"
+        System.out.println(ship.getMyPrizes(10));
+        //Should be "chip"
+        System.out.println(ship.getMyPrizes(77));
+        //Should be "chip coin"
+        System.out.println(ship.getMyPrizes(777));
+        //Should be ""
+        System.out.println(ship.getMyPrizes(54));
     }
 }
