@@ -12,10 +12,10 @@ public class CaptainDisputeAgain {
     public static void main(String[] args) {
         CaptainDisputeAgain captainDisputeAgain = new CaptainDisputeAgain();
 
-        //Should be even
+        //Should be 1
         System.out.println(captainDisputeAgain.findMin(new int[] {1, 10, 3}));
 
-        //Should be odd
+        //Should be 4
         System.out.println(captainDisputeAgain.findMin(new int[] {50, 4, 100}));
     }
 }
