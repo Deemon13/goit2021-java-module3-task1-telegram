@@ -94,47 +94,41 @@ public class UberShop {
         UberShop shop = new UberShop();
 
         //Should be 100 jup. 23.5 jup. 400 jup. - one price per line
-        float[] prices1 = new float[] {100f, 23.5f, 400f};
-        shop.printPrices(prices1);
+        shop.printPrices(new float[] {100f, 23.5f, 400f});
 
-        //Should be [200, 2250]
-        float[] prices2 = new float[] {100f, 1500f};
-        shop.multiplyPrices(prices2);
-        System.out.println(Arrays.toString(prices2));
+        //Should be [200, 2250] - Проверить!
+        float[] pricesArr = new float[] {100f, 1500f};
+        shop.multiplyPrices(pricesArr);
+        System.out.println(Arrays.toString(pricesArr));
 
         //Should be [50, 1500]
-        int[] prices = new int[] {100, 1500, 300, 50};
-        int[] minMax = shop.findMinMaxPrices(prices);
-        System.out.println(Arrays.toString(minMax));
+        System.out.println(Arrays.toString(shop.findMinMaxPrices(new int[] {100, 1500, 300, 50})));
         //Should be [3, 1550]
-        int[] pricesTwo = new int[] {10, 50, 3, 1550};
-        int[] minMaxTwo = shop.findMinMaxPrices(pricesTwo);
-        System.out.println(Arrays.toString(minMaxTwo));
+        System.out.println(Arrays.toString(shop.findMinMaxPrices(new int[] {10, 50, 3, 1550})));
         //Should be []
-        int[] pricesThree = new int[] {};
-        int[] minMaxThree = shop.findMinMaxPrices(pricesThree);
-        System.out.println(Arrays.toString(minMaxThree));
+        System.out.println(Arrays.toString(shop.findMinMaxPrices(new int[] {})));
         //Should be [50]
-        int[] pricesFour = new int[] {50, 50};
-        int[] minMaxFour = shop.findMinMaxPrices(pricesFour);
-        System.out.println(Arrays.toString(minMaxFour));
+        System.out.println(Arrays.toString(shop.findMinMaxPrices(new int[] {50, 50})));
 
-        int[] pricesForMinOne = new int[] {100, 1500, 300, 50, 10, 10, 70};
-        System.out.println(shop.getMinPriceCount(pricesForMinOne)); //Should be 2
-        int[] pricesForMinTwo = new int[] {};
-        System.out.println(shop.getMinPriceCount(pricesForMinTwo)); //Should be 0
-        int[] pricesForMinThree = new int[] {5, 5, 5};
-        System.out.println(shop.getMinPriceCount(pricesForMinThree)); //Should be 3
-        int[] pricesForMinFour = new int[] {5, 10, 15, 3, 5};
-        System.out.println(shop.getMinPriceCount(pricesForMinFour)); //Should be 1
+        System.out.println(shop.getMinPriceCount(new int[] {100, 1500, 300, 50, 10, 10, 70})); //Should be 2
+        System.out.println(shop.getMinPriceCount(new int[] {})); //Should be 0
+        System.out.println(shop.getMinPriceCount(new int[] {5, 5, 5})); //Should be 3
+        System.out.println(shop.getMinPriceCount(new int[] {5, 10, 15, 3, 5})); //Should be 1
 
         //Should be [150, 200]
-        int[] pricesFive = new int[]{150, 100, 200};
-        int toRemove = 100;
-        System.out.println(Arrays.toString(shop.removePrice(pricesFive, toRemove)));
+        System.out.println(Arrays.toString(shop.removePrice(new int[]{150, 100, 200}, 100)));
         //Should be []
-        int[] pricesSix = new int[]{100, 100, 100};
-        System.out.println(Arrays.toString(shop.removePrice(pricesSix, toRemove)));
+        System.out.println(Arrays.toString(shop.removePrice(new int[]{100, 100, 100}, 100)));
+
+        //Should be [1599, 399]
+        //int[] pricesSeven = new int[] {399, 1599, 399, 50, 10, 10, 70};
+        //System.out.println(Arrays.toString(shop.leavePrice9(pricesSeven)));
+        //Should be [1599, 399]
+        //int[] pricesEight = new int[] {399, 1599, 399, 50, 10, 10, 70};
+        //System.out.println(Arrays.toString(shop.leavePrice9(pricesSeven)));
+        //Should be [1599, 399]
+        //int[] pricesSeven = new int[] {399, 1599, 399, 50, 10, 10, 70};
+        //System.out.println(Arrays.toString(shop.leavePrice9(pricesSeven)));
     }
 
 }
