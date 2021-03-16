@@ -88,6 +88,30 @@ public class UberShop {
         return newPrices;
     }
 
+    public int[] leavePrice9(int[] prices) {
+
+        int j = 0;
+        int k = 0;
+
+
+        for (int i = 0; i < prices.length; i++) {
+
+            if (prices[i] % 10 != 9) {
+                j++;
+            }
+        }
+
+        int[] newPrices = new int[prices.length - j];
+
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] % 10 == 9) {
+                newPrices[k] = prices[i];
+                k++;
+            }
+        }
+        return newPrices;
+    }
+
 
     //Test output
     public static void main(String[] args) {
@@ -120,15 +144,11 @@ public class UberShop {
         //Should be []
         System.out.println(Arrays.toString(shop.removePrice(new int[]{100, 100, 100}, 100)));
 
-        //Should be [1599, 399]
-        //int[] pricesSeven = new int[] {399, 1599, 399, 50, 10, 10, 70};
-        //System.out.println(Arrays.toString(shop.leavePrice9(pricesSeven)));
-        //Should be [1599, 399]
-        //int[] pricesEight = new int[] {399, 1599, 399, 50, 10, 10, 70};
-        //System.out.println(Arrays.toString(shop.leavePrice9(pricesSeven)));
-        //Should be [1599, 399]
-        //int[] pricesSeven = new int[] {399, 1599, 399, 50, 10, 10, 70};
-        //System.out.println(Arrays.toString(shop.leavePrice9(pricesSeven)));
+        //Should be [399, 1599, 399]
+        System.out.println(Arrays.toString(shop.leavePrice9(new int[] {399, 1599, 399, 50, 10, 10, 70})));
+        //Should be [99, 49]
+        System.out.println(Arrays.toString(shop.leavePrice9(new int[] {1, 99, 5, 49})));
+        //Should be []
+        System.out.println(Arrays.toString(shop.leavePrice9(new int[] {})));
     }
-
 }
