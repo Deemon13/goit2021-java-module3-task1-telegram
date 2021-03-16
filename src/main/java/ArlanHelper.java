@@ -30,6 +30,20 @@ public class ArlanHelper {
         return rect;
     }
 
+    public String drawLine(int length) {
+        String line = "";
+        int i = 0;
+        while (i < length) {
+            if (i % 2 == 0) {
+                line = line + "*";
+            } else {
+                line = line + "#";
+            }
+            i++;
+        }
+        return line;
+    }
+
     //Test output
     public static void main(String[] args) {
         ArlanHelper helper = new ArlanHelper();
@@ -43,5 +57,9 @@ public class ArlanHelper {
         //XX
         //XX
         System.out.println(helper.drawRect(2, 3, 'X'));
+
+        //Should be:
+        //*#*#*
+        System.out.println(helper.drawLine(5));
     }
 }
