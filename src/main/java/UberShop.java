@@ -93,9 +93,7 @@ public class UberShop {
         int j = 0;
         int k = 0;
 
-
         for (int i = 0; i < prices.length; i++) {
-
             if (prices[i] % 10 != 9) {
                 j++;
             }
@@ -112,6 +110,16 @@ public class UberShop {
         return newPrices;
     }
 
+    public String[] mergeStocks(String[] showcaseStocks, String[] warehouseStocks) {
+        String[] mergedStocks = Arrays.copyOf(showcaseStocks, showcaseStocks.length + warehouseStocks.length);
+        int j = showcaseStocks.length; //2
+
+        for (int i = 0; i < warehouseStocks.length; i++) {
+            mergedStocks[j] = warehouseStocks[i];
+            j++;
+        }
+        return mergedStocks;
+    }
 
     //Test output
     public static void main(String[] args) {
@@ -150,5 +158,10 @@ public class UberShop {
         System.out.println(Arrays.toString(shop.leavePrice9(new int[] {1, 99, 5, 49})));
         //Should be []
         System.out.println(Arrays.toString(shop.leavePrice9(new int[] {})));
+
+        //Final result should be ["gun", "firebow", "firegun"]
+        String[] showcaseStocks = new String[] {"gun", "firebow"};
+        String[] warehouseStocks = new String[] {"firegun"};
+        System.out.println(Arrays.toString(shop.mergeStocks(showcaseStocks, warehouseStocks)));
     }
 }
