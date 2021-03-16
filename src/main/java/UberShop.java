@@ -66,6 +66,28 @@ public class UberShop {
         return count;
     }
 
+    public int[] removePrice(int[] prices, int toRemove) {
+
+        int j = 0;
+        int k = 0;
+
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] == toRemove) {
+                j++;
+            }
+        }
+
+        int[] newPrices = new int[prices.length - j];
+
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] != toRemove) {
+                newPrices[k] = prices[i];
+                k++;
+            }
+        }
+        return newPrices;
+    }
+
 
     //Test output
     public static void main(String[] args) {
@@ -105,6 +127,14 @@ public class UberShop {
         System.out.println(shop.getMinPriceCount(pricesForMinThree)); //Should be 3
         int[] pricesForMinFour = new int[] {5, 10, 15, 3, 5};
         System.out.println(shop.getMinPriceCount(pricesForMinFour)); //Should be 1
+
+        //Should be [150, 200]
+        int[] pricesFive = new int[]{150, 100, 200};
+        int toRemove = 100;
+        System.out.println(Arrays.toString(shop.removePrice(pricesFive, toRemove)));
+        //Should be []
+        int[] pricesSix = new int[]{100, 100, 100};
+        System.out.println(Arrays.toString(shop.removePrice(pricesSix, toRemove)));
     }
 
 }
